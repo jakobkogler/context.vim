@@ -287,6 +287,11 @@ endfunction
 function! s:show_in_preview(lines) abort
     call s:echof('> show_in_preview', len(a:lines))
 
+    pclose
+    if len(a:lines) == 0
+        return
+    endif
+
     if s:min_height < len(a:lines)
         let s:min_height = len(a:lines)
     endif
